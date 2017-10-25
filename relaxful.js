@@ -1,8 +1,10 @@
-module.exports.request = function(method, https, url, port, path, obj) {
+var url = require('url');
+
+module.exports.request = function(method, urlString, obj) {
     var apiReq;
 
     var promise = new Promise(function(resolve, reject) {
-        if(!url) {
+        if(!urlString) {
             reject(new Error('URL Cannot Be Null'));
         } else{
             if(!method) {
@@ -11,18 +13,20 @@ module.exports.request = function(method, https, url, port, path, obj) {
                 var http = require('http');
                 var data = "";
 
+                var tUrl = url.parse(urlString);
+
                 var options = {
-                    hostname: url,
-                    path: path,
+                    hostname: tUrl.hostname,
+                    path: tUrl.pathname,
                     method: method,
-                    port: port
+                    port: tUrl.port
                 }; 
 
                 if(obj && obj.headers) {
                     options.headers = obj.headers; 
                 } 
 
-                if(https === true) { 
+                if(tUrl.protocol == 'https:') { 
                     http = require('https'); 
                 }
 
