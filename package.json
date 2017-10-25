@@ -1,0 +1,28 @@
+{
+  "name": "relaxful",
+  "version": "1.0.2",
+  "description": "A REST API client.  Currently no file upload support.",
+  "main": "relaxful.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianfoose/relaxful-node-js.git"
+  },
+  "keywords": [
+    "API",
+    "restful",
+    "API Client",
+	"REST"
+  ],
+  "author": "Ian Foose",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/ianfoose/relaxful-node-js/issues"
+  },
+  "homepage": "https://github.com/ianfoose/relaxful-node-js#readme",
+  "dependencies": {
+    "url": "^0.11.0"
+  }
+}
