@@ -24,6 +24,35 @@ helper.request('get', 'http://someurl/some/path').promise.then(result => {
 });
 ```
 
+### Request Headers
+
+```js
+var helper = require('relaxful');
+
+var reqHeaders = { 'api-key': 'some-api-key' };
+
+helper.request('get', 'http://someurl/some/path',{ headers: reqHeaders }).promise.then(result => {
+  console.log(result.text);
+}).catch(error => {
+  // todo handle error
+});
+```
+
+### Request Body
+
+```js
+
+var helper = require('relaxful');
+
+var body = { 'name': 'John Smith' };
+
+helper.request('get', 'http://someurl/some/path', { body: body }).promise.then(result => {
+  console.log(result.text);
+}).catch(error => {
+  // todo handle error
+});
+```
+
 ### JSON
 
 Use the 'json()' method of a result to parse JSON data from the reqponse.
