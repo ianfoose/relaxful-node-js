@@ -85,6 +85,47 @@ helper.request('get', 'http://someurl/some/path').promise.then(result => {
 });
 ```
 
+### Response
+
+When a response fails validation or you need to check the HTTP Status code, you can access the ```status``` property of the response.  To get the HTTP Status message, access it through the ```message``` property.  
+
+```js
+var helper = require('./relaxful');
+
+helper.request('get', 'http://someurl/some/path').promise.then(result => {
+  return result.validate();
+}).then(result => {
+  console.log(result.status); 
+  console.log(result.message);
+}).catch(error => {
+  // todo handle error
+});     
+```
+
+To access a plain text response of the response body, use the ```text``` property.
+
+```js
+var helper = require('./relaxful');
+
+helper.request('get', 'http://someurl/some/path').promise.then(result => {
+  return result.text;
+}).catch(error => {
+  // todo handle error
+});
+```
+
+Response headers are passed back in the ```headers``` property of the response.  
+
+```js
+var helper = require('./relaxful');
+
+helper.request('get', 'http://someurl/some/path').promise.then(result => {
+  return result.headers;
+}).catch(error => {
+  // todo handle error
+});
+```
+
 ### Cancel a Request
 
 The current request is stored in the 'req' property of the helper object.  
