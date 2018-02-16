@@ -1,6 +1,6 @@
 {
   "name": "relaxful",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A REST API client.  Currently no file upload support.",
   "main": "relaxful.js",
   "scripts": {
