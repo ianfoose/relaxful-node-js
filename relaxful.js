@@ -22,6 +22,10 @@ module.exports.request = function(method, urlString, obj) {
                     port: tUrl.port
                 }; 
 
+                if(tUrl.search) {
+                    options.path += tUrl.search;
+                }
+
                 if(obj && obj.headers) {
                     options.headers = obj.headers; 
                 } 
